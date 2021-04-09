@@ -6,8 +6,8 @@ import { Switch, Route } from 'react-router-dom';
 import PageNotFound from './Page-Not-Found/pageNotFound';
 import Home from './Home/Home';
 import Signin from './Sign-In/Signin'
-import Environments from './Environments/Environments';
-//import Environment from './Environment';
+import Configurations from './Configurations/Configurations';
+
 
 
 export default function App() {
@@ -24,8 +24,8 @@ export default function App() {
           <Signin />
         </Route>
 
-        <Route path="/environments">
-        <Environments />
+        <Route path="/configurations">
+        <Configurations />
         </Route>
 
         <Route path="*" >
@@ -37,10 +37,3 @@ export default function App() {
   );
 }
 
-/*
-
-
-<Route path="/environment/:id">
-<Environment />
-</Route>
-*/
