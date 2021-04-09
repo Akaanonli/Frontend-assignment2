@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from '@dnb/eufemia/components'
+import {Button} from '@dnb/eufemia/components';
 
 import splash from './Developer_girl.jpg'; 
 
