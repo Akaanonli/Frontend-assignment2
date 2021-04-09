@@ -6,6 +6,8 @@ import { Switch, Route } from 'react-router-dom';
 import PageNotFound from './page-not-found/page-not-found';
 import Home from './Home/Home';
 import Signin from './Sign-in/Sign-in'
+//import Environments from './Environments';
+//import Environment from './Environment';
 
 
 export default function App() {
@@ -31,3 +33,12 @@ export default function App() {
   );
 }
 
+/*
+<Route path="/environments">
+<Environments />
+</Route>
+
+<Route path="/environment/:id">
+<Environment />
+</Route>
+*/
