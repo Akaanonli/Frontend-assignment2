@@ -1,9 +1,15 @@
 export class RestClient {
 
-    static baseUrl = "https://localhost:44330"
+    static baseUrl = "https://localhost:44310"
 
     static async getEnvironments() : Promise<any> {
         const url = `${RestClient.baseUrl}/environments`
+        const response = await window.fetch(url)
+        return await response.json()
+    }
+
+    static async getConfigurations() : Promise<any> {
+        const url = `${RestClient.baseUrl}/configurations`
         const response = await window.fetch(url)
         return await response.json()
     }
