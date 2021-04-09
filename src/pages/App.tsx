@@ -3,9 +3,9 @@ import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
-import PageNotFound from './page-not-found/page-not-found';
+import PageNotFound from './Page-Not-Found/pageNotFound';
 import Home from './Home/Home';
-import Signin from './Sign-in/Sign-in'
+import Signin from './Sign-In/Signin'
 //import Environments from './Environments';
 //import Environment from './Environment';
 
