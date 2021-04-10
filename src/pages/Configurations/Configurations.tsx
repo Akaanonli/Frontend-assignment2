@@ -19,7 +19,7 @@ export default function Configurations() {
 		<h1>Configurations</h1>
 		{configurations.map((c:any, i:number) =>
 			
-			<Link key={i} className='blockLink' to={`configurations/${c.id}`}>
+			<Link key={i} className='blockLink' to={`configuration/${c.id}`}>
 			<Button
 					variant="secondary"
 					text={c.appName}
