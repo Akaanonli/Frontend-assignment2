@@ -1,26 +1,32 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Button} from '@dnb/eufemia/components';
+import { H1, P } from '@dnb/eufemia/elements'
+import './Home.css'
 
 import splash from './Developer_girl.jpg'; 
 
 function Home() {
     return (
-	<div className="container">
-		<div className="centered">
+	<div>
             
-            
-        <h1>Configuration Data</h1>
-			<p>
-				This application allows you to view application configuration data. 
-				Please choose an environment to inspect which application data it contains.
-			</p>
-			<p>
-				In order to add, modify or delete data, you have to log in as an administrator.
-			</p>
-        </div>
+        <p>
+        <H1>Developer environments</H1>
+        </p>
+        
+        
+        <P>
+        Have you ever thought that DNB shoud gather all the different cofigurations for all of the developer environments? <br></br>
+        That's what we thought too! So here it is, <Link to = "/environments"> alist of environments and their corresponding configurations </Link>
+        </P>
 
+		<Link to= "/configurations">
+        <p>
 		<img src={splash} alt='Girl Coding'/>
+        </p>
+        </Link>
+
+        <p>
         <Link to= "/environments">
 		<Button
                 variant="secondary"
@@ -29,7 +35,9 @@ function Home() {
                 size="large"
             />
         </Link>
+        </p>
 
+        <p>
         <Link to= "/configurations">
 		<Button
                 variant="secondary"
@@ -38,6 +46,7 @@ function Home() {
                 size="large"
             />
         </Link>
+        </p>
         
 	</div>
 	
