@@ -3,6 +3,32 @@ import { Link } from "react-router-dom";
 import { RestClient } from "../../RestClient"
 import { Button } from '@dnb/eufemia/components';
 import { Heading } from '@dnb/eufemia/components';
+
+
+export default function Environments() {
+
+	let[environments, setEnvironments]= React.useState<Array<any>>([])
+
+	React.useEffect(()=>{
+		RestClient.getEnvironments()
+					.then(environments => setEnvironments(environments))
+
+	}, [])
+
+	return(
+		<div> 
+			<h1>Environments</h1>
+			{environments.map((c:any, i:number) =>
+				<h2>{c.keyName}</h2>
+			)}
+		</div>
+	)
+}
+
+
+
+
+
 /*
 export default function ListEnvironments(){
 	return (

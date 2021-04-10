@@ -3,19 +3,19 @@ export class RestClient {
     static baseUrl = "https://localhost:44310"
 
     static async getEnvironments() : Promise<any> {
-        const url = `${RestClient.baseUrl}/environments`
+        const url = `${RestClient.baseUrl}/viewAppEnvironments`
         const response = await window.fetch(url)
         return await response.json()
     }
 
     static async getConfigurations() : Promise<any> {
-        const url = `${RestClient.baseUrl}/configurations`
+        const url = `${RestClient.baseUrl}/viewconfigurations`
         const response = await window.fetch(url)
         return await response.json()
     }    
     
     static async getConfiguration(id: number) : Promise<any> {
-        const url = `${RestClient.baseUrl}/configurations/${id}`
+        const url = `${RestClient.baseUrl}/viewconfigurations/${id}`
         const response = await fetch(url)
         return await response.json()
     }
@@ -27,7 +27,6 @@ export class RestClient {
         const response = await fetch(url)
         return await response.json()
     }
-
     */
 
 }
