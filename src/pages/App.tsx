@@ -4,6 +4,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
 import Menu from '../Global-Components/Menu';
+import Footer from '../Global-Components/Footer';
 
 import PageNotFound from './Page-Not-Found/pageNotFound';
 import Home from './Home/Home';
@@ -17,7 +18,7 @@ import Configuration from './Configuration/Configuration';
 export default function App() {
   return (
     <div>
-      
+
       <Menu/>
 
       <Switch>
@@ -47,6 +48,8 @@ export default function App() {
         </Route>
         
       </Switch>
+
+      <Footer/>
     </div>  
   );
 }
