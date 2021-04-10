@@ -4,8 +4,28 @@ import { RestClient } from "../../RestClient"
 import { Button } from '@dnb/eufemia/components';
 import { Heading } from '@dnb/eufemia/components';
 
+export default function Configurations() {
+
+	let[configurations, setConfigurations]= React.useState<Array<any>>([])
+
+	React.useEffect(()=>{
+		RestClient.getConfigurations()
+					.then(configurations => setConfigurations(configurations))
+
+	}, [])
+
+	return(
+		<div> 
+			<h1>Configurations</h1>
+			{configurations.map((c:any, i:number) =>
+				<h2>{c.appName}</h2>
+			)}
+		</div>
+	)
+}
 
 
+/*
 export default function ListConfig(){
 	return (
 		<React.Fragment>
@@ -39,3 +59,4 @@ export default function ListConfig(){
 }
 
 
+*/
