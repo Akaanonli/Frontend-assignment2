@@ -7,6 +7,7 @@ import PageNotFound from './Page-Not-Found/pageNotFound';
 import Home from './Home/Home';
 import Signin from './Sign-In/Signin'
 import Configurations from './Configurations/Configurations';
+import Configuration from './Configuration/Configuration';
 
 
 
@@ -26,6 +27,10 @@ export default function App() {
 
         <Route path="/configurations">
         <Configurations />
+        </Route>
+
+        <Route path="/configuration/:id">
+        <Configuration />
         </Route>
 
         <Route path="*" >

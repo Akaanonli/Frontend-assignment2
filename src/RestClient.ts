@@ -13,13 +13,14 @@ export class RestClient {
         const response = await window.fetch(url)
         return await response.json()
     }    
-    /*       
-    static async getEnvironment(id: number) : Promise<any> {
-        const url = `${RestClient.baseUrl}/environments/${id}`
+    
+    static async getConfiguration(id: number) : Promise<any> {
+        const url = `${RestClient.baseUrl}/configurations/${id}`
         const response = await fetch(url)
         return await response.json()
     }
     
+    /*       
     -- Raul prøver seg på en funksjon for henting av admin credentials --
         static async getCredentials() : Promise<any> {
         const url = `${RestClient.baseUrl}/administrators`
