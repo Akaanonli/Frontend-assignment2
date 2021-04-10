@@ -28,7 +28,35 @@ export default function Configuration() {
 function ConfigurationDetails (configuration: any){
 	return(
 		<div>
-			<h1>{configuration.appName}</h1>
+			<h1>{configuration.place}</h1>
+			<p>
+				<label>Id</label>
+				<span>{configuration.id}</span>
+			</p>
+			<p>
+				<label>Application name</label>
+				<span>{configuration.appName}</span>
+			</p>
+			<p>
+				<label>Environment</label>
+				<span>{configuration.environment}</span>
+			</p>
+			<p>
+				<label>Key</label>
+				<span>{configuration.key}</span>
+			</p>
+			<p>
+				<label>Value</label>
+				<span>{configuration.value}</span>
+			</p>
+			<p>
+				<label>Last Modified By</label>
+				<span>{configuration.lastModifiedUserId}</span>
+			</p>
+			<p>
+				<label>Last Modified At</label>
+				<span>{configuration.lastModifiedDttm}</span>
+			</p>
 		</div>
 	)
 }

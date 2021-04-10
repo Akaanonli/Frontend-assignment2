@@ -16,13 +16,23 @@ export default function Configurations() {
 
 	return(
 		<div> 
-			<h1>Configurations</h1>
-			{configurations.map((c:any, i:number) =>
-				<h2>{c.appName}</h2>
-			)}
+		<h1>Configurations</h1>
+		{configurations.map((c:any, i:number) =>
+			
+			<Link key={i} className='blockLink' to={`configurations/${c.id}`}>
+			<Button
+					variant="secondary"
+					text={c.appName}
+					icon="chevron_right_medium"
+					size="large"
+				/>
+			</Link>
+		)}
 		</div>
 	)
 }
+
+
 
 
 /*

@@ -17,10 +17,18 @@ export default function Environments() {
 
 	return(
 		<div> 
-			<h1>Environments</h1>
-			{environments.map((c:any, i:number) =>
-				<h2>{c.keyName}</h2>
-			)}
+		<h1>Environments</h1>
+		{environments.map((c:any, i:number) =>
+			
+			<Link key={i} className='blockLink' to={`environments/${c.id}`}>
+			<Button
+					variant="secondary"
+					text={c.keyName}
+					icon="chevron_right_medium"
+					size="large"
+				/>
+			</Link>
+		)}
 		</div>
 	)
 }
