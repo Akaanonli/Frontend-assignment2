@@ -2,10 +2,10 @@ import React from 'react';
 
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-/*
-import Menu from './Menu';
-import About from './About';
-*/ 
+
+import Menu from '../Global-Components/Menu';
+import Footer from '../Global-Components/Footer';
+
 import PageNotFound from './Page-Not-Found/pageNotFound';
 import Home from './Home/Home';
 import Signin from './Sign-In/Signin'
@@ -18,6 +18,8 @@ import Configuration from './Configuration/Configuration';
 export default function App() {
   return (
     <div>
+
+      <Menu/>
 
       <Switch>
 
@@ -46,6 +48,8 @@ export default function App() {
         </Route>
         
       </Switch>
+
+      <Footer/>
     </div>  
   );
 }
