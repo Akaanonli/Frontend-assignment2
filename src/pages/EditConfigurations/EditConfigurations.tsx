@@ -21,9 +21,8 @@ export default function EditConfigurations() {
 		<h1>Configurations</h1>
 		{configurations.map((c:any, i:number) =>
 			
-			<Link key={i} className='blockLink' to={`editconfiguration/${c.id}`}>
+			<Link key={i} className='blockLink' to={`editconfiguration/${c.id}`} style={{ textDecoration: 'none' }}>
 			<Button
-					variant="secondary"
 					text={c.appName}
 					icon="chevron_right_medium"
 					size="large"
