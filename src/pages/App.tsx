@@ -43,6 +43,11 @@ export default function App() {
         <Environment />
         </Route>
 
+        <Route path="/admin-environments">
+        <EditEnvironments />
+        </Route>
+
+
         <Route path="*" >
           <PageNotFound />
         </Route>
