@@ -11,7 +11,7 @@ import Home from './Home/Home';
 import Signin from './Sign-In/Signin'
 import Configurations from './Configurations/Configurations';
 import Environments from './Environments/Environments';
-import Configuration from './Configuration/Configuration';
+import Environment from './Environment/Environment';
 
 
 
@@ -39,8 +39,8 @@ export default function App() {
         <Environments />
         </Route>
 
-        <Route path="/configuration/:id">
-        <Configuration />
+        <Route path="/environment/:id">
+        <Environment />
         </Route>
 
         <Route path="*" >

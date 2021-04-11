@@ -30,7 +30,7 @@ export class RestClient {
 
 
     static async getEnvironment(id: number) : Promise<any> {
-        const url = `${RestClient.baseUrl}/viewAviewAppEnvironmentspp/${id}`
+        const url = `${RestClient.baseUrl}/viewAppEnvironments/${id}`
         const response = await fetch(url)
         return await response.json()
     }
@@ -56,12 +56,12 @@ export class RestClient {
         )
     }
 
-    static addConfiguration(configuration: any) : Promise<any> {
-        const url = `${RestClient.baseUrl}/configurations`
+    static addConfiguration(envId: number, configuration: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/configurations/${envId}`
         return fetch(
                     url, 
                     { 
-                        method: 'PUT', 
+                        method: 'POST', 
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(configuration)
                     }
@@ -74,15 +74,12 @@ export class RestClient {
         return fetch(
                     url, 
                     { 
-                        method: 'PUT', 
+                        method: 'POST', 
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(environment)
                     }
         )
     }
-
-
-
 
 
 
