@@ -7,12 +7,11 @@ import ReactDOM from 'react-dom';
 
 
 export default function EditConfiguration() {
-	return (
+	/*return (
 		<div>Til Alina - denne kan du selvfølgelig slette når du driver å tester. Den er lagt inn for at løsningen skulle compile før jeg pushet. Ref. ha noe som fungerer;)</div>
-	)
-}
+	)*/
 
-/*	
+
 	let {id}: any =useParams()
 
 	let[environment, setEnvironment] = React.useState<any>(undefined)
@@ -27,7 +26,7 @@ export default function EditConfiguration() {
 		return (
 			<React.Fragment>
 				<EnvDetails {...environment}/>
-				<EnvConfigurations {...environment}/>
+				{/*<EnvConfigurations {...environment}/>*/}
 			</React.Fragment>
 		)
 	} else {
@@ -60,6 +59,7 @@ function EnvConfigurations(environment: any) {
 	)
 }
 
+
 function editConfigurationsMarkup(environment: any) {
 	if (!environment.configurations || !environment.configurations.length) {
 		return <div>No configurations yet</div>
@@ -67,10 +67,12 @@ function editConfigurationsMarkup(environment: any) {
 	else {
 		return (
 			<div>
-				<h2>Configurations</h2>
+				<h2>Current configurations</h2>
 				{environment.configurations.map((r:any,i: number) => 
 					<p key={i}>
+						<span className='id'>{r.id}</span>
 						<span className='appName'>{r.appName}</span>
+						<span className='environmentId'>{r.environmentId}</span>
 						<span className='key'>{r.key}</span>
 						<span className='value'> {r.value}</span>
 						<span className='lastModifiedUserId'> {r.lastModifiedUserId}</span>
@@ -93,7 +95,9 @@ function editConfigurationFormMarkup(environment: any) {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		let configuration = {
+			id:  (document.getElementById('id') as HTMLInputElement).value,
 			appName:  (document.getElementById('appName') as HTMLInputElement).value,
+			environmentId: (document.getElementById('environmentId') as HTMLInputElement).value,
 			key: (document.getElementById('key') as HTMLInputElement).value,
 			value: (document.getElementById('value') as HTMLInputElement).value,
 			lastModifiedUserId: (document.getElementById('lastModifiedUserId') as HTMLInputElement).value,
@@ -101,7 +105,7 @@ function editConfigurationFormMarkup(environment: any) {
 		}
 		RestClient.changeConfiguration(environment.id, configuration)
 		          .then( () => {
-					  window.alert('Thanks dude!')
+					  window.alert('Thanks')
 					  e.target.reset()
 					  environment.configurations.push(configuration)
 					  setValue(value => value + 1)     // Dummy state change, to trigger re-render
@@ -141,5 +145,4 @@ function editConfigurationFormMarkup(environment: any) {
 			</form>
 		</div>
 	)
-}
-*/
+}*/

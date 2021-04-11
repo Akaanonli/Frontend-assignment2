@@ -96,7 +96,7 @@ function useAddConfigurationFormMarkup(environment: any) {
 		}
 		RestClient.addConfiguration(environment.id, configuration)
 		          .then( () => {
-					  window.alert('Thanks dude!')
+					  window.alert('Thanks')
 					  e.target.reset()
 					  environment.configurations.push(configuration)
 					  setValue(value => value + 1)     // Dummy state change, to trigger re-render
