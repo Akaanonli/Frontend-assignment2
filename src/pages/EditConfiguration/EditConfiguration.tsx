@@ -7,7 +7,12 @@ import ReactDOM from 'react-dom';
 
 
 export default function EditConfiguration() {
+	return (
+		<div>Til Alina - denne kan du selvfølgelig slette når du driver å tester. Den er lagt inn for at løsningen skulle compile før jeg pushet. Ref. ha noe som fungerer;)</div>
+	)
+}
 
+/*	
 	let {id}: any =useParams()
 
 	let[environment, setEnvironment] = React.useState<any>(undefined)
@@ -137,3 +142,4 @@ function editConfigurationFormMarkup(environment: any) {
 		</div>
 	)
 }
+*/

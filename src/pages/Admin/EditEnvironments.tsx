@@ -20,7 +20,7 @@ export default function EditEnvironments(){
 
             /*
             <React.Fragment>
-                <EnvironmentInDataBase {...environments} />
+                <EnvironmentsInDataBase {...environments} />
             </React.Fragment>
             */
 
@@ -43,17 +43,19 @@ export default function EditEnvironments(){
     }
 }
 
-function EnvironmentInDataBase (environments :any){
+function EnvironmentsInDataBase (environments:any){
     
         return(
-            <div>
-                <H2>Environments</H2>
-                {environments.map((c:any, i:number) =>
-			
-                    <h2>{c.keyName}</h2>
+            <React.Fragment>
+                <h1>Environments</h1>
                     
-                )}
-            </div>
+                    {environments.map((d:any, i: number)=>
+                    <span key={i}>{d.keyName}</span>)}
+                    
+            </React.Fragment>
+		    
+		
+		
                         
         )
 

@@ -13,6 +13,7 @@ import Configurations from './Configurations/Configurations';
 import Environments from './Environments/Environments';
 import Environment from './Environment/Environment';
 import EditEnvironments from './Admin/EditEnvironments';
+import EditConfiguration from './EditConfiguration/EditConfiguration';
 
 
 export default function App() {
@@ -45,6 +46,10 @@ export default function App() {
 
         <Route path="/admin-environments">
         <EditEnvironments />
+        </Route>
+
+        <Route path="/admin-configuration">
+        <EditConfiguration />
         </Route>
 
 
