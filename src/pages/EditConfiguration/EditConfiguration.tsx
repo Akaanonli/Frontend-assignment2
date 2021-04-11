@@ -26,7 +26,7 @@ export default function EditConfiguration() {
 		return (
 			<React.Fragment>
 				<EnvDetails {...environmentToEdit}/>
-				{/*<EnvConfigurations {...environment}/>*/}
+				{<EnvConfigurations {...environmentToEdit}/>}
 			</React.Fragment>
 		)
 	} else {
@@ -50,17 +50,17 @@ function EnvDetails (environmentToEdit: any){
 }
 
 
-function envConfigurations(environmentToEdit: any) {
+function EnvConfigurations(environmentToEdit: any) {
 	return (
 		<React.Fragment>
-			{editConfigurationsMarkup(environmentToEdit)}
-			{editConfigurationFormMarkup(environmentToEdit)}
+			{EditConfigurationsMarkup(environmentToEdit)}
+			{EditConfigurationFormMarkup(environmentToEdit)}
 		</React.Fragment>
 	)
 }
 
 
-function editConfigurationsMarkup(environmentToEdit: any) {
+function EditConfigurationsMarkup(environmentToEdit: any) {
 	if (!environmentToEdit.configurations || !environmentToEdit.configurations.length) {
 		return <div>No configurations yet</div>
 	}
@@ -86,7 +86,7 @@ function editConfigurationsMarkup(environmentToEdit: any) {
 
 
 
-function editConfigurationFormMarkup(environmentToEdit: any) {
+function EditConfigurationFormMarkup(environmentToEdit: any) {
 
 	// Dummy state, which we will update after the user has added a review.
 	// By updating this state, we are telling React to re-render the component (i.e. to show the new review).
