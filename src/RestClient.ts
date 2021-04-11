@@ -2,6 +2,8 @@ export class RestClient {
 
     static baseUrl = "https://localhost:44310"
 
+
+
     static async getEnvironments() : Promise<any> {
         const url = `${RestClient.baseUrl}/viewAppEnvironments`
         const response = await window.fetch(url)
@@ -56,14 +58,14 @@ export class RestClient {
         )
     }
 
-    static addConfiguration(envId: number, configuration: any) : Promise<any> {
+    static addConfiguration(envId: number,configuration: any) : Promise<any> {
         const url = `${RestClient.baseUrl}/configurations/${envId}`
         return fetch(
                     url, 
                     { 
                         method: 'POST', 
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(configuration)
+                        body: JSON.stringify(configuration )
                     }
         )
     }
@@ -98,7 +100,7 @@ export class RestClient {
 
 
     static changeConfiguration(id: number, configuration: any) : Promise<any> {
-    const url = `${RestClient.baseUrl}/configurations/${id}`
+    const url = `${RestClient.baseUrl}/configurations`+ id
     return fetch(
                 url, 
                 { 
@@ -108,7 +110,6 @@ export class RestClient {
                 }
         )
     }
-
 
 
 

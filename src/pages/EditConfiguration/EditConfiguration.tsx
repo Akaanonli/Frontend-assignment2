@@ -88,8 +88,10 @@ export default function EditConfiguration() {
 			  <td>Id</td>
 			  <td>AppName</td>
 			  <td>EnvironmentId</td>
-			  <td>LastModified</td>
-			  <td>LastModifiedAt</td>
+			  <td>Key</td>
+			  <td>Value</td>
+			  <td>LastModified By</td>
+			  <td>LastModified At</td>
 			</tr>
 			{
 			  configurations.map((item: any, i: number) =>
@@ -110,18 +112,13 @@ export default function EditConfiguration() {
 		  </tbody>
 		</table>
 		<div>
-				<label htmlFor='appName'>Application Name: </label>
-				<input id='appName' type="text" value={appName} onChange={(e)=>{setAppName(e.target.value)}} /> <br /><br />
-				<label htmlFor='environmentId'>Environment Id: </label>
-				<input id='environmentId' type="text" value={environmentId} onChange={(e)=>{setEnvironmentId(e.target.value)}} /> <br /><br />
-				<label htmlFor='key'>Key: </label>
-				<input id='key' type="text" value={key}  onChange={(e)=>{setKey(e.target.value)}} /> <br /><br />
-				<label htmlFor='value'>Value: </label>
-				<input id='value' type="text" value={value}  onChange={(e)=>{setValue(e.target.value)}} /> <br /><br />
-				<label htmlFor='lastModifiedUserId'>Last Modified by user: </label>
-				<input id='lastModifiedUserId' type="text" value={lastModifiedUserId}  onChange={(e)=>{setLastModified(e.target.value)}} /> <br /><br />
-				<label htmlFor='lastModifiedDttm'>Last Modified at: </label>
-				<input id='lastModifiedDttm'type="text" value={lastModifiedDttm}  onChange={(e)=>{setLastModifiedAt(e.target.value)}} /> <br /><br />
+
+				<input type="text" value={appName} onChange={(e)=>{setAppName(e.target.value)}} /> <br /><br />
+				<input type="text" value={environmentId} onChange={(e)=>{setEnvironmentId(e.target.value)}} /> <br /><br />
+				<input value={key}  onChange={(e)=>{setKey(e.target.value)}} /> <br /><br />
+				<input type="text" value={value}  onChange={(e)=>{setValue(e.target.value)}} /> <br /><br />
+				<input type="text" value={lastModifiedUserId}  onChange={(e)=>{setLastModified(e.target.value)}} /> <br /><br />
+				<input type="text" value={lastModifiedDttm}  onChange={(e)=>{setLastModifiedAt(e.target.value)}} /> <br /><br />
 				<button onClick={UpdateConfiguration} >Update Configuration</button>  
 		</div>
 	  </div>

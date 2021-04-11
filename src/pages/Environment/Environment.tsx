@@ -66,6 +66,7 @@ function useConfigurationsMarkup(environment: any) {
 				{environment.configurations.map((r:any,i: number) => 
 					<p key={i}>
 						<span className='appName'>Name: {r.appName} </span>
+						<span className='value'>Value:  {r.value} </span>
 						<span className='key'>Key: {r.key} </span>
 						<span className='value'>Value:  {r.value} </span>
 						<span className='lastModifiedUserId'> Last modified by: {r.lastModifiedUserId} </span>
@@ -76,7 +77,6 @@ function useConfigurationsMarkup(environment: any) {
 		)
 	}
 }
-
 
 
 function useAddConfigurationFormMarkup(environment: any) {
@@ -94,7 +94,8 @@ function useAddConfigurationFormMarkup(environment: any) {
 			lastModifiedUserId: (document.getElementById('lastModifiedUserId') as HTMLInputElement).value,
 			lastModifiedDttm: (document.getElementById('lastModifiedDttm') as HTMLInputElement).value
 		}
-		RestClient.addConfiguration(environment.id, configuration)
+
+		RestClient.addConfiguration(environment.id,configuration)
 		          .then( () => {
 					  window.alert('Thanks')
 					  e.target.reset()
@@ -128,7 +129,6 @@ function useAddConfigurationFormMarkup(environment: any) {
 					<label htmlFor='lastModifiedUserId'>Last Modified by user: </label>
 					<input id='lastModifiedUserId' type='text'/>
 				</p>
-
 				<p>
 					<label>&nbsp;</label> {}
 					<button>Add Configurations</button>
@@ -137,3 +137,47 @@ function useAddConfigurationFormMarkup(environment: any) {
 		</div>
 	)
 }
+
+
+/*
+function useAddConfigurationFormMarkup() {
+	const [appName, setAppName] = useState("");
+	const [environmentId, setEnvironmentId] = useState("");
+	const [key, setKey] = useState("");
+	const [value, setValue] = useState("");
+	const [lastModifiedUserId, setLastModified] = useState("");
+	const [lastModifiedDttm,setLastModifiedAt]=useState("");
+   
+function saveData()
+   {
+	let data={appName, environmentId, key, value, lastModifiedUserId, lastModifiedDttm}
+   // console.warn(data);
+	 fetch(`https://localhost:44310/configurations/${environmentId}`, {
+	   method: "POST",
+	   headers: {
+		 'Accept': 'application/json',
+		 'Content-Type': 'application/json',
+	   },
+	   body:JSON.stringify(data)
+	 }).then((resp)=>{
+	   // console.warn("resp",resp);;
+	   resp.json().then((result)=>{
+		 console.warn("result",result)
+	   })
+	 })
+   }
+	 return (
+	   <div className="useAddConfigurationFormMarkup">
+		 <h1>POST API </h1>  
+		 <input type="text" name="appName" value={appName} onChange={(e)=>{setAppName(e.target.value)}}   /> <br /> <br />
+		 <input type="text" name="key"  value={key}  onChange={(e)=>{setKey(e.target.value)}} /> <br /> <br />
+		 <input type="text" name="value"  value={value}  onChange={(e)=>{setValue(e.target.value)}} /> <br /> <br />
+		 <input type="text" name="lastModifiedUserId"  value={lastModifiedUserId}  onChange={(e)=>{setLastModified(e.target.value)}} /> <br /> <br />
+		 <input type="text" name="lastModifiedDttm"  value={lastModifiedDttm}  onChange={(e)=>{setLastModifiedAt(e.target.value)}} /> <br /> <br />
+		 <button type="button" onClick={saveData} >Save New Configurations</button>
+	   </div>
+	 );
+}*/
+
+
+	
