@@ -14,8 +14,6 @@ import Environments from './Environments/Environments';
 import Configuration from './Configuration/Configuration';
 import EditEnvironments from './Admin/EditEnvironments';
 
-
-
 export default function App() {
   return (
     <div>
@@ -47,6 +45,7 @@ export default function App() {
         <Route path="/admin-environments">
         <EditEnvironments />
         </Route>
+
 
         <Route path="*" >
           <PageNotFound />
