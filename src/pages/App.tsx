@@ -12,6 +12,7 @@ import Signin from './Sign-In/Signin'
 import Configurations from './Configurations/Configurations';
 import Environments from './Environments/Environments';
 import Configuration from './Configuration/Configuration';
+import EditEnvironments from './Admin/EditEnvironments';
 
 
 
@@ -41,6 +42,10 @@ export default function App() {
 
         <Route path="/configuration/:id">
         <Configuration />
+        </Route>
+
+        <Route path="/admin-environments">
+        <EditEnvironments />
         </Route>
 
         <Route path="*" >
