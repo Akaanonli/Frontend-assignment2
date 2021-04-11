@@ -13,7 +13,7 @@ import Configurations from './Configurations/Configurations';
 import Environments from './Environments/Environments';
 import Environment from './Environment/Environment';
 import EditEnvironments from './Admin/EditEnvironments';
-import EditConfiguration from './EditConfiguration/EditConfiguration';
+import EditConfigurations from './EditConfigurations/EditConfigurations'
 
 
 export default function App() {
@@ -48,8 +48,8 @@ export default function App() {
         <EditEnvironments />
         </Route>
 
-        <Route path="/admin-configuration">
-        <EditConfiguration />
+        <Route path="/admin-configurations">
+        <EditConfigurations />
         </Route>
 
 
