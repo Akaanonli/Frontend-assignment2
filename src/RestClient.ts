@@ -158,13 +158,4 @@ export class RestClient {
     }
 
 
-    /*       
-    -- Raul prøver seg på en funksjon for henting av admin credentials --
-        static async getCredentials() : Promise<any> {
-        const url = `${RestClient.baseUrl}/administrators`
-        const response = await fetch(url)
-        return await response.json()
-    }
-    */
-
 }

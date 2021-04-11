@@ -11,3 +11,7 @@ p {
     text-align: center;
     padding: 20px; 
 }
+
+.div.largespace{
+  padding: 20rem;
+}
