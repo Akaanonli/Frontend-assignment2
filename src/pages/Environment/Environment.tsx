@@ -65,11 +65,11 @@ function useConfigurationsMarkup(environment: any) {
 				<h2>Configurations</h2>
 				{environment.configurations.map((r:any,i: number) => 
 					<p key={i}>
-						<span className='appName'>{r.appName}</span>
-						<span className='key'>{r.key}</span>
-						<span className='value'> {r.value}</span>
-						<span className='lastModifiedUserId'> {r.lastModifiedUserId}</span>
-						<span className='lastModifiedDttm'> [{r.lastModifiedDttm}]</span>
+						<span className='appName'>Name: {r.appName} </span>
+						<span className='key'>Key: {r.key} </span>
+						<span className='value'>Value:  {r.value} </span>
+						<span className='lastModifiedUserId'> Last modified by: {r.lastModifiedUserId} </span>
+						<span className='lastModifiedDttm'> Last modified at: [{r.lastModifiedDttm}] </span>
 					</p>
 				)}
 			</div>
@@ -109,23 +109,23 @@ function useAddConfigurationFormMarkup(environment: any) {
 			<h2>Add Configuration</h2>
 			<form onSubmit={handleSubmit}>
 				<p>
-					<label htmlFor='appName'>Application Name</label>
+					<label htmlFor='appName'>Application Name: </label>
 					<input id='appName' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='key'>Key</label>
+					<label htmlFor='key'>Key: </label>
 					<input id='key' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='value'>Value</label>
+					<label htmlFor='value'>Value: </label>
 					<input id='value' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='lastModifiedDttm'>Last Modified at:</label>
+					<label htmlFor='lastModifiedDttm'>Last Modified at:  </label>
 					<input id='lastModifiedDttm' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='lastModifiedUserId'>Last Modified by user:</label>
+					<label htmlFor='lastModifiedUserId'>Last Modified by user: </label>
 					<input id='lastModifiedUserId' type='text'/>
 				</p>
 

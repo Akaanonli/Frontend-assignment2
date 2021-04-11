@@ -5,34 +5,31 @@ import { Button } from '@dnb/eufemia/components';
 import { Heading } from '@dnb/eufemia/components';
 
 
-export default function EditConfigurations() {
-	/*return(
-	<p> Endret for å pushe</p>
-	)*/
 
-	let[environmentsToEdit, setEnvironments]= React.useState<Array<any>>([])
+export default function EditConfigurations() {
+
+	let[configurations, setConfigurations]= React.useState<Array<any>>([])
 
 	React.useEffect(()=>{
-		RestClient.getEnvironments()
-					.then(environmentsToEdit => setEnvironments(environmentsToEdit))
+		RestClient.getConfigurations()
+					.then(configurations => setConfigurations(configurations))
 
 	}, [])
 
 	return(
 		<div> 
-		<h1>Environments</h1>
-		{environmentsToEdit.map((c:any, i:number) =>
+		<h1>Configurations</h1>
+		{configurations.map((c:any, i:number) =>
+			
 			<Link key={i} className='blockLink' to={`editconfiguration/${c.id}`}>
-			/<Button
+			<Button
 					variant="secondary"
-					text={c.keyName}
+					text={c.appName}
 					icon="chevron_right_medium"
 					size="large"
 				/>
 			</Link>
-			)}
+		)}
 		</div>
 	)
 }
-
-
