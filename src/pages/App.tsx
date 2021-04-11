@@ -52,6 +52,9 @@ export default function App() {
         <EditConfigurations />
         </Route>
 
+        <Route path="/editconfiguration/:id">
+        <EditConfigurations />
+        </Route>
 
         <Route path="*" >
           <PageNotFound />

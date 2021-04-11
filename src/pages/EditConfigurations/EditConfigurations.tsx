@@ -6,17 +6,11 @@ import { Heading } from '@dnb/eufemia/components';
 
 
 export default function EditConfigurations() {
-	return(
+	/*return(
 	<p> Endret for å pushe</p>
-	)
-}
+	)*/
 
-<<<<<<< HEAD
 	let[environmentsToEdit, setEnvironments]= React.useState<Array<any>>([])
-=======
-/*
-	let[environments, setEnvironments]= React.useState<Array<any>>([])
->>>>>>> 1b9e7b48964844e75ca7e591cf7114da0dbc365c
 
 	React.useEffect(()=>{
 		RestClient.getEnvironments()
@@ -42,4 +36,3 @@ export default function EditConfigurations() {
 }
 
 
-*/

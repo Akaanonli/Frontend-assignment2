@@ -14,18 +14,18 @@ export default function EditConfiguration() {
 
 	let {id}: any =useParams()
 
-	let[environment, setEnvironment] = React.useState<any>(undefined)
+	let[environmentToEdit, setEnvironment] = React.useState<any>(undefined)
 
 	React.useEffect(()=> {
 		RestClient.getEnvironment(id)
-					.then(environment => setEnvironment(environment))
+					.then(environmentToEdit => setEnvironment(environmentToEdit))
 					.catch(err => alert(err))
 	},[id])
 
-	if (environment) {
+	if (environmentToEdit) {
 		return (
 			<React.Fragment>
-				<EnvDetails {...environment}/>
+				<EnvDetails {...environmentToEdit}/>
 				{/*<EnvConfigurations {...environment}/>*/}
 			</React.Fragment>
 		)
@@ -34,41 +34,41 @@ export default function EditConfiguration() {
 	}
 }
 
-function EnvDetails (environment: any){
+function EnvDetails (environmentToEdit: any){
 	return(
 		<div>
 			<p>
 				<label> Key name: </label>
-				<span>{environment.keyName}</span>
+				<span>{environmentToEdit.keyName}</span>
 			</p>
 			<p>
 				<label> Long Name: </label>
-				<span>{environment.longName}</span>
+				<span>{environmentToEdit.longName}</span>
 			</p>
 		</div>
 	)
 }
 
 
-function EnvConfigurations(environment: any) {
+function envConfigurations(environmentToEdit: any) {
 	return (
 		<React.Fragment>
-			{editConfigurationsMarkup(environment)}
-			{editConfigurationFormMarkup(environment)}
+			{editConfigurationsMarkup(environmentToEdit)}
+			{editConfigurationFormMarkup(environmentToEdit)}
 		</React.Fragment>
 	)
 }
 
 
-function editConfigurationsMarkup(environment: any) {
-	if (!environment.configurations || !environment.configurations.length) {
+function editConfigurationsMarkup(environmentToEdit: any) {
+	if (!environmentToEdit.configurations || !environmentToEdit.configurations.length) {
 		return <div>No configurations yet</div>
 	}
 	else {
 		return (
 			<div>
 				<h2>Current configurations</h2>
-				{environment.configurations.map((r:any,i: number) => 
+				{environmentToEdit.configurations.map((r:any,i: number) => 
 					<p key={i}>
 						<span className='id'>{r.id}</span>
 						<span className='appName'>{r.appName}</span>
@@ -86,7 +86,7 @@ function editConfigurationsMarkup(environment: any) {
 
 
 
-function editConfigurationFormMarkup(environment: any) {
+function editConfigurationFormMarkup(environmentToEdit: any) {
 
 	// Dummy state, which we will update after the user has added a review.
 	// By updating this state, we are telling React to re-render the component (i.e. to show the new review).
@@ -103,11 +103,11 @@ function editConfigurationFormMarkup(environment: any) {
 			lastModifiedUserId: (document.getElementById('lastModifiedUserId') as HTMLInputElement).value,
 			lastModifiedDttm: (document.getElementById('lastModifiedDttm') as HTMLInputElement).value
 		}
-		RestClient.changeConfiguration(environment.id, configuration)
+		RestClient.changeConfiguration(environmentToEdit.id, configuration)
 		          .then( () => {
 					  window.alert('Thanks')
 					  e.target.reset()
-					  environment.configurations.push(configuration)
+					  environmentToEdit.configurations.push(configuration)
 					  setValue(value => value + 1)     // Dummy state change, to trigger re-render
 				  })
 				  .catch(err => alert(err))
@@ -145,4 +145,4 @@ function editConfigurationFormMarkup(environment: any) {
 			</form>
 		</div>
 	)
-}*/
+}
