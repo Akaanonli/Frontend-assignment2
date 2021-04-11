@@ -26,7 +26,7 @@ export default function EditEnvironments(){
   
         )
     } else {
-        return <p>Oooh no</p>
+        return <p>Oh no</p>
     }
 }
 
@@ -70,7 +70,7 @@ function useAddEnvironmentFormMarkup(environments: any) {
 		          .then( () => {
 					  window.alert('Environment added')
 					  e.target.reset()
-					  environments.environment.push(newEnvironment)
+					  environments.push(newEnvironment)
 					  setValue(value => value + 1)
                   })
 				  .catch(err => alert(err))
