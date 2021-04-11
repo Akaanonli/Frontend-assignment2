@@ -12,7 +12,7 @@ import Signin from './Sign-In/Signin'
 import Configurations from './Configurations/Configurations';
 import Environments from './Environments/Environments';
 import Environment from './Environment/Environment';
-
+import EditEnvironments from './Admin/EditEnvironments';
 
 
 export default function App() {
