@@ -50,7 +50,7 @@ function EnvironmentConfigurations(environment: any) {
 	return (
 		<React.Fragment>
 			{useConfigurationsMarkup(environment)}
-			{useAddConfigurationFormMarkup(environment)}
+			{useAddConfigurationFormMarkup()}
 		</React.Fragment>
 	)
 }
@@ -78,7 +78,7 @@ function useConfigurationsMarkup(environment: any) {
 	}
 }
 
-
+/*
 function useAddConfigurationFormMarkup(environment: any) {
 
 	// Dummy state, which we will update after the user has added a review.
@@ -136,21 +136,21 @@ function useAddConfigurationFormMarkup(environment: any) {
 			</form>
 		</div>
 	)
-}
+}*/
 
 
-/*
+
 function useAddConfigurationFormMarkup() {
 	const [appName, setAppName] = useState("");
-	const [environmentId, setEnvironmentId] = useState("");
 	const [key, setKey] = useState("");
 	const [value, setValue] = useState("");
 	const [lastModifiedUserId, setLastModified] = useState("");
 	const [lastModifiedDttm,setLastModifiedAt]=useState("");
+	const [id,setId]=useState(null)
    
 function saveData()
    {
-	let data={appName, environmentId, key, value, lastModifiedUserId, lastModifiedDttm}
+	let data={appName, key, value, lastModifiedUserId, lastModifiedDttm}
    // console.warn(data);
 	 fetch(`https://localhost:44310/configurations/${environmentId}`, {
 	   method: "POST",
@@ -177,7 +177,7 @@ function saveData()
 		 <button type="button" onClick={saveData} >Save New Configurations</button>
 	   </div>
 	 );
-}*/
+}
 
 
 	
