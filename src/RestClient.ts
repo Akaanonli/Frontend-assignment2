@@ -58,8 +58,8 @@ export class RestClient {
         )
     }
 
-    static addConfiguration(envId: number,configuration: any) : Promise<any> {
-        const url = `${RestClient.baseUrl}/configurations/${envId}`
+    static addConfiguration(id:number, configuration: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/configurations/${id}`
         return fetch(
                     url, 
                     { 

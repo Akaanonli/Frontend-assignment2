@@ -123,7 +123,7 @@ export default function EditConfiguration() {
 
 				<input type="text" value={appName} onChange={(e)=>{setAppName(e.target.value)}} /> <br /><br />
 				<input type="text" value={environmentId} onChange={(e)=>{setEnvironmentId(e.target.value)}} /> <br /><br />
-				<input value={key}  onChange={(e)=>{setKey(e.target.value)}} /> <br /><br />
+				<input  type="text" value={key}  onChange={(e)=>{setKey(e.target.value)}} /> <br /><br />
 				<input type="text" value={value}  onChange={(e)=>{setValue(e.target.value)}} /> <br /><br />
 				<input type="text" value={lastModifiedUserId}  onChange={(e)=>{setLastModified(e.target.value)}} /> <br /><br />
 				<input type="text" value={lastModifiedDttm}  onChange={(e)=>{setLastModifiedAt(e.target.value)}} /> <br /><br />

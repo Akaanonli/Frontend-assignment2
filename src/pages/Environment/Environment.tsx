@@ -4,6 +4,7 @@ import { RestClient } from "../../RestClient";
 import { H1, H2, Paragraph } from '@dnb/eufemia/elements'
 import'./Environment.css'
 import { FormLabel, Input } from "@dnb/eufemia/components";
+import { render } from "@testing-library/react";
 
 
 export default function Environment() {
@@ -50,7 +51,7 @@ function EnvironmentConfigurations(environment: any) {
 	return (
 		<React.Fragment>
 			{useConfigurationsMarkup(environment)}
-			{useAddConfigurationFormMarkup()}
+			{useAddConfigurationFormMarkup(environment)}
 		</React.Fragment>
 	)
 }
@@ -66,7 +67,7 @@ function useConfigurationsMarkup(environment: any) {
 				{environment.configurations.map((r:any,i: number) => 
 					<p key={i}>
 						<span className='appName'>Name: {r.appName} </span>
-						<span className='value'>Value:  {r.value} </span>
+						<span className='environmentId'>Value:  {r.value} </span>
 						<span className='key'>Key: {r.key} </span>
 						<span className='value'>Value:  {r.value} </span>
 						<span className='lastModifiedUserId'> Last modified by: {r.lastModifiedUserId} </span>
@@ -78,10 +79,9 @@ function useConfigurationsMarkup(environment: any) {
 	}
 }
 
-/*
-function useAddConfigurationFormMarkup(environment: any) {
 
-	
+function useAddConfigurationFormMarkup(environment:any) {
+
 	const [value, setValue] = React.useState(0) 
 
 	const handleSubmit = (e: any) => {
@@ -91,58 +91,62 @@ function useAddConfigurationFormMarkup(environment: any) {
 			key: (document.getElementById('key') as HTMLInputElement).value,
 			value: (document.getElementById('value') as HTMLInputElement).value,
 			lastModifiedUserId: (document.getElementById('lastModifiedUserId') as HTMLInputElement).value,
-			lastModifiedDttm: (document.getElementById('lastModifiedDttm') as HTMLInputElement).value
-		}
+			lastModifiedDttm: (document.getElementById('lastModifiedDttm') as HTMLInputElement).value,
+			environmentId:environment.id
+		};
 
-		RestClient.addConfiguration(environment.id,configuration)
+		RestClient.addConfiguration(environment.Id, configuration)
 		          .then( () => {
 					  window.alert('Thanks')
-					  e.target.reset()
+					  //e.target.reset()
 					  environment.configurations.push(configuration)
 					  setValue(value => value + 1)     // Dummy state change, to trigger re-render
 				  })
 				  .catch(err => alert(err))
-	}
-
-	return (
+		}	
+	
+		return (
 		<div>
 			<H2>Add Configuration</H2>
 			<p>
-					<Paragraph>Do you hav any additional configurations for: <b> {environment.keyName}</b>? Add them here.</Paragraph>
+					<Paragraph>Do you have any additional configurations for the environment? Add them here.</Paragraph>
 				</p>
-			<form onSubmit={handleSubmit}>
+				
+				<p>
+					<FormLabel htmlFor='id'>Id: </FormLabel>
+					<input  type='text' id='appName'/>
+				</p>
 				<p>
 					<FormLabel htmlFor='appName'>Application Name: </FormLabel>
-					<input id='appName' type='text'/>
+					<input  type='text' id='appName'/>
 				</p>
 				<p>
 					<FormLabel htmlFor='key'> Key: </FormLabel>
-					<input id='key' type='text'/>
+					<input type='text' id='key'/>
 				</p>
 				<p>
 					<FormLabel htmlFor='value'>Value: </FormLabel>
-					<input id='value' type='text'/>
+					<input  type='text' id='value'/>
 				</p>
 				<p>
 					<FormLabel htmlFor='lastModifiedDttm'>Last Modified at:  </FormLabel>
-					<input id='lastModifiedDttm' type='text'/>
+					<input type='text' id='lastModifiedDttm'/>
 				</p>
 				<p>
 					<FormLabel htmlFor='lastModifiedUserId'>Last Modified by user: </FormLabel>
-					<input id='lastModifiedUserId' type='text'/>
+					<input type='text' id='lastModifiedUserId'/>
 				</p>
 				<p>
 					<label>&nbsp;</label> {}
-					<button>Add Configurations</button>
+					<button type = 'button' onClick={handleSubmit}>Add Configuration</button>
 				</p>
-			</form>
 		</div>
 	)
-}*/
+}
 
 
-
-function useAddConfigurationFormMarkup() {
+/*
+function useAddConfigurationFormMarkup(configuration: any) {
 	const [appName, setAppName] = useState("");
 	const [key, setKey] = useState("");
 	const [value, setValue] = useState("");
@@ -154,7 +158,7 @@ function saveData()
    {
 	let data={appName, key, value, lastModifiedUserId, lastModifiedDttm}
    // console.warn(data);
-	 fetch(`https://localhost:44310/configurations/${environmentId}`, {
+	 fetch(`https://localhost:44310/configurations/${environment.Id}`, {
 	   method: "POST",
 	   headers: {
 		 'Accept': 'application/json',
@@ -178,8 +182,5 @@ function saveData()
 		 <input type="text" name="lastModifiedDttm"  value={lastModifiedDttm}  onChange={(e)=>{setLastModifiedAt(e.target.value)}} /> <br /> <br />
 		 <button type="button" onClick={saveData} >Save New Configurations</button>
 	   </div>
-	 );
-}
-
-
+	 );*/
 	
