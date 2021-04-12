@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { RestClient } from "../../RestClient"
 import { Button } from '@dnb/eufemia/components';
-import { Heading } from '@dnb/eufemia/components';
+import { H1 } from '@dnb/eufemia/elements'
 
 export default function Configurations() {
 
@@ -16,16 +16,19 @@ export default function Configurations() {
 
 	return(
 		<div> 
-		<h1>Configurations</h1>
+			<p>
+				<H1>Configurations</H1>
+			</p>
 		{configurations.map((c:any, i:number) =>
-			
-			<Link key={i} className='blockLink' to={`editconfiguration/${c.id}`} style={{ textDecoration: 'none' }}>
-			<Button
-					text={c.appName}
-					icon="chevron_right_medium"
-					size="large"
-				/>
-			</Link>
+			<p>
+				<Link key={i} className='blockLink' to={`editconfiguration/${c.id}`} style={{ textDecoration: 'none' }}>
+				<Button
+						text={c.appName}
+						icon="chevron_right_medium"
+						size="large"
+					/>
+				</Link>
+			</p>
 		)}
 		</div>
 	)

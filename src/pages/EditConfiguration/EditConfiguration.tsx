@@ -4,6 +4,8 @@ import { RestClient } from "../../RestClient";
 import { Button } from '@dnb/eufemia/components';
 import { Heading } from '@dnb/eufemia/components';
 import ReactDOM from 'react-dom';
+import { H1 } from "@dnb/eufemia/elements";
+import './EditConfiguration.css'
 
 
 export default function EditConfiguration() {
@@ -81,15 +83,21 @@ export default function EditConfiguration() {
 
 	return (
 	  <div className="EditConfiguration">
-		<h1>Update Configuration Data </h1>
+		<p>
+			<H1>Update Configuration Data </H1>
+		</p>
+		<p>
 		<table style={{ float: 'left' }}>
 		  <tbody>
 			<tr>
 			  <td>Id</td>
 			  <td>AppName</td>
 			  <td>EnvironmentId</td>
-			  <td>LastModified</td>
+			  <td>Source</td>
+			  <td>By</td>
+			  <td>date</td>
 			  <td>LastModifiedAt</td>
+			  
 			</tr>
 			{
 			  configurations.map((item: any, i: number) =>
@@ -107,8 +115,11 @@ export default function EditConfiguration() {
 				</tr>
 			  )
 			}
-		  </tbody>
+		  </tbody> 
 		</table>
+		</p>
+		<p></p><p></p><p></p>
+		<p>
 		<div>
 				<label htmlFor='appName'>Application Name: </label>
 				<input id='appName' type="text" value={appName} onChange={(e)=>{setAppName(e.target.value)}} /> <br /><br />
@@ -124,6 +135,7 @@ export default function EditConfiguration() {
 				<input id='lastModifiedDttm'type="text" value={lastModifiedDttm}  onChange={(e)=>{setLastModifiedAt(e.target.value)}} /> <br /><br />
 				<button onClick={UpdateConfiguration} >Update Configuration</button>  
 		</div>
+		</p>
 	  </div>
 	);
   }

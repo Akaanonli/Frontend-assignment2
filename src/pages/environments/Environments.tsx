@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { RestClient } from "../../RestClient"
 import { Button } from '@dnb/eufemia/components';
 import { Heading } from '@dnb/eufemia/components';
-import { Anchor } from "@dnb/eufemia/elements";
+import { Anchor, H1, Div } from "@dnb/eufemia/elements";
 
 
 export default function Environments() {
@@ -18,11 +18,14 @@ export default function Environments() {
 
 	return(
 		<div> 
-		<h1>Environments</h1>
+			<p>
+				<H1>Environments</H1>
+				<Div> Available environments</Div>
+			</p>
 		{environments.map((c:any, i:number) =>
 			<Link key={i} className='blockLink' to={`environment/${c.id}`} style={{ textDecoration: 'none' }}>
 			<p> </p><Button
-					text={c.keyName}
+					text={c.longName}
 					icon="chevron_right_medium"
 					size="large"
 				/>
