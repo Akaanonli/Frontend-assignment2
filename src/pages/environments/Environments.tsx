@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RestClient } from "../../RestClient"
 import { Button } from '@dnb/eufemia/components';
 import { Heading } from '@dnb/eufemia/components';
+import { Anchor, H1, Div } from "@dnb/eufemia/elements";
 
 
 export default function Environments() {
@@ -17,39 +18,24 @@ export default function Environments() {
 
 	return(
 		<div> 
-		<h1>Environments</h1>
+			<p>
+				<H1>Environments</H1>
+				<Div> Available environments</Div>
+			</p>
 		{environments.map((c:any, i:number) =>
 			<Link key={i} className='blockLink' to={`environment/${c.id}`} style={{ textDecoration: 'none' }}>
 			<p> </p><Button
-					text={c.keyName}
+					text={c.longName}
 					icon="chevron_right_medium"
 					size="large"
 				/>
 			</Link>
 			)}
+			<p>
+				<Anchor href="/edit-environments" className="dnb-anchor--no-icon"> Edit Environments </Anchor>
+			</p>
 		</div>
+		
 	)
 }
 
-/*
-export default function ListEnvironments(){
-	return (
-		<React.Fragment>
-     	 	<Heading size="medium">click to show environments</Heading>
-      		<Button onClick={() => secondTry()}>Environments</Button>
-    	</React.Fragment>
-	);
-
-
-	  function secondTry() {
-		const promise = RestClient.getEnvironments()
-		promise.then(data => {
-			var correspondingConfigsForEnvironmentOne = data[0].configurations
-            for(var c of correspondingConfigsForEnvironmentOne) {
-                console.log(c.keyName)
-            }
-		})
-	  
-    }
-}
-*/

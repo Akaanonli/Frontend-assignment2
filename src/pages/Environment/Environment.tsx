@@ -1,9 +1,9 @@
 import React , {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { RestClient } from "../../RestClient";
-import { Button } from '@dnb/eufemia/components';
-import { Heading } from '@dnb/eufemia/components';
-import ReactDOM from 'react-dom';
+import { H1, H2, Paragraph } from '@dnb/eufemia/elements'
+import'./Environment.css'
+import { FormLabel, Input } from "@dnb/eufemia/components";
 
 
 export default function Environment() {
@@ -33,14 +33,14 @@ export default function Environment() {
 function EnvironmentDetails (environment: any){
 	return(
 		<div>
-			<p>
-				<label> Key name: </label>
-				<span>{environment.keyName}</span>
-			</p>
-			<p>
-				<label> Long Name: </label>
-				<span>{environment.longName}</span>
-			</p>
+			<p></p>
+			<H1>{environment.longName}</H1>
+			
+				<p>
+					<Paragraph>Here you will find all available configurations for the <b>{environment.longName}</b>  environment.<br></br> 
+					Possibly better known as:<b> {environment.keyName}</b></Paragraph>
+				</p>
+			
 		</div>
 	)
 }
@@ -62,7 +62,7 @@ function useConfigurationsMarkup(environment: any) {
 	else {
 		return (
 			<div>
-				<h2>Configurations</h2>
+				<H2>Configurations</H2>
 				{environment.configurations.map((r:any,i: number) => 
 					<p key={i}>
 						<span className='appName'>Name: {r.appName} </span>
@@ -81,8 +81,7 @@ function useConfigurationsMarkup(environment: any) {
 /*
 function useAddConfigurationFormMarkup(environment: any) {
 
-	// Dummy state, which we will update after the user has added a review.
-	// By updating this state, we are telling React to re-render the component (i.e. to show the new review).
+	
 	const [value, setValue] = React.useState(0) 
 
 	const handleSubmit = (e: any) => {
@@ -107,26 +106,29 @@ function useAddConfigurationFormMarkup(environment: any) {
 
 	return (
 		<div>
-			<h2>Add Configuration</h2>
+			<H2>Add Configuration</H2>
+			<p>
+					<Paragraph>Do you hav any additional configurations for: <b> {environment.keyName}</b>? Add them here.</Paragraph>
+				</p>
 			<form onSubmit={handleSubmit}>
 				<p>
-					<label htmlFor='appName'>Application Name: </label>
+					<FormLabel htmlFor='appName'>Application Name: </FormLabel>
 					<input id='appName' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='key'>Key: </label>
+					<FormLabel htmlFor='key'> Key: </FormLabel>
 					<input id='key' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='value'>Value: </label>
+					<FormLabel htmlFor='value'>Value: </FormLabel>
 					<input id='value' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='lastModifiedDttm'>Last Modified at:  </label>
+					<FormLabel htmlFor='lastModifiedDttm'>Last Modified at:  </FormLabel>
 					<input id='lastModifiedDttm' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='lastModifiedUserId'>Last Modified by user: </label>
+					<FormLabel htmlFor='lastModifiedUserId'>Last Modified by user: </FormLabel>
 					<input id='lastModifiedUserId' type='text'/>
 				</p>
 				<p>

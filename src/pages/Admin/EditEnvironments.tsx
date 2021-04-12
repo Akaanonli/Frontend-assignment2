@@ -1,7 +1,9 @@
 import React from "react";
 import {RestClient } from "./../../RestClient"
+import './EditEnvironments.css';
+
 import { useParams } from "react-router-dom";
-import { Heading, Button } from '@dnb/eufemia/components';
+import { Heading, Button, FormSet, FormLabel, Input } from '@dnb/eufemia/components';
 import { Div, H2 } from '@dnb/eufemia/elements';
 import { Link } from "react-router-dom";
 import Environments from "../Environments/Environments";
@@ -26,7 +28,7 @@ export default function EditEnvironments(){
   
         )
     } else {
-        return <p>Oooh no</p>
+        return <p>Oh no</p>
     }
 }
 
@@ -42,10 +44,15 @@ function EnvironmentsInDataBase (environments:any){
     
         return(
             <React.Fragment>
-                <h1>Environments in Database</h1>
+                    <p></p>
+                    <Heading>Edit environments</Heading>
+                    <p>
+                        <H2 size="medium">Curren environments:</H2>
+                    </p>
+                    
                     <ul>
-                    {environments.map((d:any, i: number)=>
-                    <li key={i}>{d.keyName}</li>)}
+                        {environments.map((d:any, i: number)=>
+                            <li key={i}>{d.keyName}</li>)}
                     </ul>
             </React.Fragment>
                
@@ -70,7 +77,7 @@ function useAddEnvironmentFormMarkup(environments: any) {
 		          .then( () => {
 					  window.alert('Environment added')
 					  e.target.reset()
-					  environments.environment.push(newEnvironment)
+					  environments.push(newEnvironment)
 					  setValue(value => value + 1)
                   })
 				  .catch(err => alert(err))
@@ -78,21 +85,20 @@ function useAddEnvironmentFormMarkup(environments: any) {
                   }
 	return (
 		<div>
-			<h2>Add Environment</h2>
+			<H2>Add Environment</H2>
 			<form onSubmit={handleSubmit}>
 				<p>
-					<label htmlFor='keyName'>Short Name</label>
-					<input id='keyName' type='text'/>
+					<FormLabel htmlFor='keyName'>Short Name</FormLabel>
+					<Input id='keyName' type='text'/>
 				</p>
 				<p>
-					<label htmlFor='longName'>Long Name</label>
-					<input id='longName' type='text'/>
+					<FormLabel htmlFor='longName'>Long Name</FormLabel>
+					<Input id='longName' type='text'/>
 				</p>
 				
 
 				<p>
-					<label>&nbsp;</label> {}
-					<button>Add Environment</button>
+					<button>ADD</button>
 				</p>
 			</form>
 		</div>

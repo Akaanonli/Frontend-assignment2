@@ -22,7 +22,7 @@ export default function EditConfigurations() {
 		{configurations.map((c:any, i:number) =>
 			
 			<Link key={i} className='blockLink' to={`editconfiguration/${c.id}`} style={{ textDecoration: 'none' }}>
-			<Button
+			<p> </p><Button
 					text={c.appName}
 					icon="chevron_right_medium"
 					size="large"
